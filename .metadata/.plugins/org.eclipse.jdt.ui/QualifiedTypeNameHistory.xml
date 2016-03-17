@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="com.example.myidty.R.id"/>
+<fullyQualifiedTypeName name="android.content.BroadcastReceiver"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.graphics.Bitmap.Config"/>
+<fullyQualifiedTypeName name="android.util.Config"/>
+<fullyQualifiedTypeName name="com.example.service.ReadService"/>
+<fullyQualifiedTypeName name="com.serotonin.modbus4j.ModbusMaster"/>
+<fullyQualifiedTypeName name="com.serotonin.modbus4j.ModbusFactory"/>
+<fullyQualifiedTypeName name="com.serotonin.modbus4j.ip.IpParameters"/>
+<fullyQualifiedTypeName name="android.content.IntentFilter"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="com.example.model.Data"/>
+<fullyQualifiedTypeName name="com.example.util.Utils"/>
+<fullyQualifiedTypeName name="com.example.myidty.MainActivity"/>
+<fullyQualifiedTypeName name="com.example.model.Configs"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="android.R.string"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,91 @@
+package com.example.myidty;
+
+import java.util.Map;
+
+import com.example.model.Configs;
+import com.example.model.Data;
+import com.example.service.ReadService;
+
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+
+public class MainActivity extends Activity implements OnClickListener {
+	private TextView tv1;
+	private TextView tv2;
+	private TextView tv3;
+	private TextView tv4;
+	private TextView tv5;
+	private EditText et1;
+	private Button btn1;
+	public   Handler handler= new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what==1){
+                Map<String,String> map=(Map<String,String>)msg.obj;
+                tv1.setText(map.get(Configs.MB_ONE));
+                tv2.setText(map.get(Configs.MB_TWO));
+                tv3.setText(map.get(Configs.MB_THREE));
+                tv4.setText(map.get(Configs.MB_FOUR));
+                tv5.setText(map.get(Configs.MB_FIVE));
+            }
+        }
+    };
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		tv1=(TextView)findViewById(R.id.tv_1);
+		tv2=(TextView)findViewById(R.id.tv_2);
+		tv3=(TextView)findViewById(R.id.tv_3);
+		tv4=(TextView)findViewById(R.id.tv_4);
+		tv5=(TextView)findViewById(R.id.tv_5);
+		et1=(EditText)findViewById(R.id.et_1);
+		btn1=(Button)findViewById(R.id.btn_1);
+		btn1.setOnClickListener(this);
+		Intent intent= new Intent(this, ReadService.class);
+		startService(intent);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btn_1:
+
+			break;
+
+		default:
+			break;
+		}
+
+	}
+	
+	public  class  MyBroadCastReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals("com.readservice")){
+                Data data=(Data)intent.getSerializableExtra("data");
+               Message message= handler.obtainMessage();
+                 message.obj=data.getMap();
+                 message.what=1;
+                 handler.sendMessageAtTime(message,1000);
+            }
+
+
+        }
+    }
+
+}

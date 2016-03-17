@@ -1,0 +1,27 @@
+package com.example.model;
+
+/**
+ * Created by huaqiang on 2015/11/24.
+ */
+public class Config {
+    //淇濆瓨鐢ㄦ埛鍚嶃�佸瘑鐮佽缃�
+    public final static String SAVE = "";
+    public final static String USER_NAME = "user_name";//鐢ㄦ埛鍚�
+    public final static String PASSWORD = "password";//瀵嗙爜
+
+    public final static String STR_ZERO = "0";
+    public final static String STR_ONE = "1";
+    public final static String STR_TWO = "2";
+
+    public static final String MB_ONE = "mb_one";
+    public static final String MB_TWO = "mb_two";
+    public static final String MB_THREE = "mb_three";
+    public static final String MB_FOUR = "mb_four";
+    public static final String MB_FIVE = "mb_five";
+
+    /*public static final String MODBUS_4800="modbus_4800";
+    public static final String MODBUS_4801="modbus_4801";
+    public static final String MODBUS_4802="modbus_4802";
+    public static final String MODBUS_4803="modbus_4803";
+    public static final String MODBUS_4804="modbus_4804";*/
+}

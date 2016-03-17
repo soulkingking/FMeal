@@ -1,0 +1,107 @@
+package com.example.util;
+
+
+
+import com.example.model.Configs;
+import com.serotonin.modbus4j.BatchRead;
+import com.serotonin.modbus4j.BatchResults;
+import com.serotonin.modbus4j.ModbusMaster;
+import com.serotonin.modbus4j.code.DataType;
+import com.serotonin.modbus4j.exception.ErrorResponseException;
+import com.serotonin.modbus4j.exception.ModbusTransportException;
+import com.serotonin.modbus4j.locator.BaseLocator;
+import com.serotonin.modbus4j.msg.WriteRegisterRequest;
+import com.serotonin.modbus4j.msg.WriteRegisterResponse;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Utils {
+    private static boolean mIsOnStart = false;
+
+    public static String getIndexResult(String message, int index) {
+        String[] msg = message.substring(1, message.length() - 1).split(",");
+        return msg[index];
+    }
+
+    /**
+     * 鎸夌収鍦板潃浣嶈鍙栨澘鍗℃暟鎹�
+     * @param master
+     * @param slaveID
+     * @return
+     */
+    public static BatchResults<String> imitateData(ModbusMaster master, int slaveID) {
+        BatchResults<String> results = null;
+        BatchRead<String> batchRead = new BatchRead<String>();
+
+        batchRead.addLocator(Configs.MB_ONE,
+                BaseLocator.holdingRegister(slaveID, 4801, DataType.TWO_BYTE_INT_SIGNED));
+        batchRead.addLocator(Configs.MB_TWO,
+                BaseLocator.holdingRegister(slaveID, 4802, DataType.TWO_BYTE_INT_SIGNED));
+        batchRead.addLocator(Configs.MB_THREE,
+                BaseLocator.holdingRegister(slaveID, 4803, DataType.TWO_BYTE_INT_SIGNED));
+        batchRead.addLocator(Configs.MB_FOUR,
+                BaseLocator.holdingRegister(slaveID, 4804, DataType.TWO_BYTE_INT_SIGNED));
+        batchRead.addLocator(Configs.MB_FIVE,
+                BaseLocator.holdingRegister(slaveID, 4805, DataType.TWO_BYTE_INT_SIGNED));
+
+        try {
+            results = master.send(batchRead);
+        } catch (ModbusTransportException e) {
+            e.printStackTrace();
+        } catch (ErrorResponseException e) {
+            e.printStackTrace();
+        }
+        return results;
+    }
+
+    /**
+     * 鏍规嵁鍦板潃鍐欐澘鍗＄殑鎿嶄綔
+     * @param master
+     * @param slaveId
+     * @param start
+     * @param values
+     */
+    public static void writeRegisters(ModbusMaster master,int slaveId,int start,short values){
+        try{
+            WriteRegisterRequest request =new WriteRegisterRequest(slaveId,start,values);
+            L.e("whq -- " + request.toString() + "---" + start + "    ---  " + values);
+            WriteRegisterResponse response =(WriteRegisterResponse)master.send(request);
+
+            if (response.isException()){
+                L.e("whq ---Exception response : message = " + response.getExceptionMessage());
+                //EventBus.getDefault().post(new EventModbus("modbus淇℃伅鍙戦�佸け璐�"));
+            }else {
+                L.e("whq --- SUCCESS");
+            }
+        }catch (ModbusTransportException e){
+            e.printStackTrace();
+        }catch (NullPointerException e){
+
+        }
+    }
+
+    /**
+     * 灏嗚鍒扮殑鏁版嵁杞寲鎴怣ap
+     * @param result
+     * @return
+     */
+    public static Map<String, String> formatResult(String result) {
+        Map<String, String> map = new HashMap<String, String>();
+        String s = result.substring(1, result.length() - 1).trim();
+        String[] arr = s.split(",");
+        for (int i = 0, len = arr.length; i < len; i++) {
+            String[] string = arr[i].trim().split("=");
+            map.put(string[0], string[1]);
+        }
+        return map;
+    }
+
+    public static void setServiceOnStart(boolean isOnStart) {
+        mIsOnStart = isOnStart;
+    }
+
+    public static boolean getServiceOnStart() {
+        return mIsOnStart;
+    }
+}

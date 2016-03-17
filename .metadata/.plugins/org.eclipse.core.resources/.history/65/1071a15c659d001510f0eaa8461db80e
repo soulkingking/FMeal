@@ -1,0 +1,130 @@
+package com.example.service;
+
+import java.util.Map;
+
+import com.example.model.Data;
+import com.example.myidty.MainActivity;
+import com.example.util.Utils;
+import com.serotonin.modbus4j.ModbusFactory;
+import com.serotonin.modbus4j.ModbusMaster;
+import com.serotonin.modbus4j.ip.IpParameters;
+
+import android.app.Service;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.IBinder;
+import android.util.Log;
+
+public class ReadService extends Service {
+	private  MainActivity.MyBroadCastReceiver myBroadCastReceiver;
+	private boolean isSuccess=false;
+	private final static int SLAVE_ID = 1;
+	private ModbusMaster mm;
+	private int PORT = 502;//端口
+	private int TIME_OUT = 5000;//延时时间
+	private String CardIP="192.168.88.127";//板卡ip
+	private Thread thread;
+	private String message;
+
+
+
+	@Override
+	public IBinder onBind(Intent intent) {
+		return null;
+	}
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		myBroadCastReceiver=new MainActivity().new MyBroadCastReceiver();
+		IntentFilter intentFilter=new IntentFilter();
+		intentFilter.addAction("com.readservice");
+		registerReceiver(myBroadCastReceiver,intentFilter);
+		createThread();
+	}
+
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		if (thread!=null&&!thread.isAlive()){
+			createThread();
+		}
+		return super.onStartCommand(intent, flags, startId);
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		unregisterReceiver(myBroadCastReceiver);
+		try {
+			mm.destroy();
+		}catch (Exception e){
+
+		}
+	}
+
+	public void connect() {
+		try {
+			IpParameters tcpParameters = new IpParameters();
+			tcpParameters.setHost(CardIP);
+			tcpParameters.setPort(PORT);
+			ModbusFactory modbusFactory = new ModbusFactory();
+
+			mm = modbusFactory.createTcpMaster(tcpParameters, true);
+			mm.setTimeout(TIME_OUT);
+			mm.setRetries(0);
+			mm.init();
+			if (mm.isInitialized()) {
+				isSuccess = true;
+				new Thread(new readThread()).start();
+			}
+		} catch (Exception e) {
+			mm.destroy();
+			Log.e(getClass().getSimpleName(), e.getMessage());
+			try {
+				Thread.sleep(2000);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			connect();
+		}
+	}
+	public void createThread(){
+		if (!isSuccess){
+			thread=new Thread(new Runnable() {
+				@Override
+				public void run() {
+					connect();
+				}
+			});
+			thread.start();
+		}
+	}
+
+	public  class readThread implements Runnable{
+
+		@Override
+		public void run() {
+			while (isSuccess) {
+				try {
+					String msg = Utils.imitateData(mm, SLAVE_ID).toString();
+					Map<String, String> map = Utils.formatResult(msg);
+					if (!map.isEmpty() && (!message.equals(msg) || Utils.getServiceOnStart())) {
+						//                        Message mesg= handler.obtainMessage();
+						//                          mesg.obj=map;
+						//                          mesg.what=1;
+						//                       handler.sendMessageAtTime(mesg, 1000);
+						Data data= new Data();
+						data.setMap(map);
+						Intent intent=new Intent();
+						intent.putExtra("data",data);
+						sendBroadcast(intent);
+					}
+					message=msg;
+					Thread.currentThread().sleep(1000);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,4 @@
+<resources>
+    <string name="ok">确定</string>
+    <string name="get_data_error">获取数据失败，请联系管理员</string>
+</resources>
