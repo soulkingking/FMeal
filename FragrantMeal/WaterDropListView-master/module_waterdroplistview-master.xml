@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_waterdroplistview-master" default="compile.module.waterdroplistview-master">
+  <dirname property="module.waterdroplistview-master.basedir" file="${ant.file.module_waterdroplistview-master}"/>
+  
+  <property name="module.jdk.home.waterdroplistview-master" value=""/>
+  <property name="module.jdk.bin.waterdroplistview-master" value=""/>
+  <property name="module.jdk.classpath.waterdroplistview-master" value=""/>
+  
+  <property name="compiler.args.waterdroplistview-master" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="waterdroplistview-master.output.dir" value="${module.waterdroplistview-master.basedir}/build/intermediates/classes/debug"/>
+  <property name="waterdroplistview-master.testoutput.dir" value="${module.waterdroplistview-master.basedir}/build/intermediates/classes/debug"/>
+  
+  <path id="waterdroplistview-master.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="waterdroplistview-master.module.production.classpath">
+    <path refid="library.appcompat-v7-22.0.0.classpath"/>
+    <path refid="library.support-v4-22.0.0.classpath"/>
+    <path refid="library.support-annotations-22.0.0.classpath"/>
+  </path>
+  
+  <path id="waterdroplistview-master.runtime.production.module.classpath">
+    <pathelement location="${waterdroplistview-master.output.dir}"/>
+    <path refid="library.appcompat-v7-22.0.0.classpath"/>
+    <path refid="library.support-v4-22.0.0.classpath"/>
+    <path refid="library.support-annotations-22.0.0.classpath"/>
+  </path>
+  
+  <path id="waterdroplistview-master.module.classpath">
+    <pathelement location="${waterdroplistview-master.output.dir}"/>
+    <path refid="library.appcompat-v7-22.0.0.classpath"/>
+    <path refid="library.support-v4-22.0.0.classpath"/>
+    <path refid="library.support-annotations-22.0.0.classpath"/>
+  </path>
+  
+  <path id="waterdroplistview-master.runtime.module.classpath">
+    <pathelement location="${waterdroplistview-master.output.dir}"/>
+    <path refid="library.appcompat-v7-22.0.0.classpath"/>
+    <path refid="library.support-v4-22.0.0.classpath"/>
+    <path refid="library.support-annotations-22.0.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.waterdroplistview-master">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.waterdroplistview-master">
+    <patternset refid="excluded.from.module.waterdroplistview-master"/>
+  </patternset>
+  
+  <path id="waterdroplistview-master.module.sourcepath">
+    <dirset dir="${module.waterdroplistview-master.basedir}">
+      <include name="build/generated/source/r/debug"/>
+      <include name="build/generated/source/aidl/debug"/>
+      <include name="build/generated/source/buildConfig/debug"/>
+      <include name="build/generated/source/rs/debug"/>
+      <include name="build/generated/res/rs/debug"/>
+      <include name="src/main/res"/>
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  <path id="waterdroplistview-master.module.test.sourcepath">
+    <dirset dir="${module.waterdroplistview-master.basedir}">
+      <include name="build/generated/source/r/test/debug"/>
+      <include name="build/generated/source/aidl/test/debug"/>
+      <include name="build/generated/source/buildConfig/test/debug"/>
+      <include name="build/generated/source/rs/test/debug"/>
+      <include name="build/generated/res/rs/test/debug"/>
+      <include name="src/androidTest/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.waterdroplistview-master" depends="compile.module.waterdroplistview-master.production,compile.module.waterdroplistview-master.tests" description="Compile module WaterDropListView-master"/>
+  
+  <target name="compile.module.waterdroplistview-master.production" depends="register.custom.compilers" description="Compile module WaterDropListView-master; production classes">
+    <mkdir dir="${waterdroplistview-master.output.dir}"/>
+    <javac2 destdir="${waterdroplistview-master.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.waterdroplistview-master}/javac">
+      <compilerarg line="${compiler.args.waterdroplistview-master}"/>
+      <bootclasspath refid="waterdroplistview-master.module.bootclasspath"/>
+      <classpath refid="waterdroplistview-master.module.production.classpath"/>
+      <src refid="waterdroplistview-master.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.waterdroplistview-master"/>
+    </javac2>
+    
+    <copy todir="${waterdroplistview-master.output.dir}">
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/source/r/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/source/aidl/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/source/buildConfig/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/source/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/res/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/src/main/res">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.waterdroplistview-master.tests" depends="register.custom.compilers,compile.module.waterdroplistview-master.production" description="compile module WaterDropListView-master; test classes" unless="skip.tests">
+    <mkdir dir="${waterdroplistview-master.testoutput.dir}"/>
+    <javac2 destdir="${waterdroplistview-master.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.waterdroplistview-master}/javac">
+      <compilerarg line="${compiler.args.waterdroplistview-master}"/>
+      <bootclasspath refid="waterdroplistview-master.module.bootclasspath"/>
+      <classpath refid="waterdroplistview-master.module.classpath"/>
+      <src refid="waterdroplistview-master.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.waterdroplistview-master"/>
+    </javac2>
+    
+    <copy todir="${waterdroplistview-master.testoutput.dir}">
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/source/r/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/source/aidl/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/source/buildConfig/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/source/rs/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/build/generated/res/rs/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.waterdroplistview-master.basedir}/src/androidTest/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.waterdroplistview-master" description="cleanup module">
+    <delete dir="${waterdroplistview-master.output.dir}"/>
+    <delete dir="${waterdroplistview-master.testoutput.dir}"/>
+  </target>
+</project>

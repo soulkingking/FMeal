@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="menu_on">#318FE7</color>
+    <color name="menu_on">#0DAF9A</color>
+    <color name="login_bg">#0DAF9A</color>
+    <drawable name="wihte">#FFFFFF</drawable>
+    <drawable name="black">#0DAF9A</drawable>
 </resources>

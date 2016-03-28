@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_fragrantmeal" default="compile.module.fragrantmeal">
+  <dirname property="module.fragrantmeal.basedir" file="${ant.file.module_fragrantmeal}"/>
+  
+  <property name="module.jdk.home.fragrantmeal" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.fragrantmeal" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.fragrantmeal" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.fragrantmeal" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="fragrantmeal.output.dir" value="${module.fragrantmeal.basedir}/build/classes/main"/>
+  <property name="fragrantmeal.testoutput.dir" value="${module.fragrantmeal.basedir}/build/classes/test"/>
+  
+  <path id="fragrantmeal.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="fragrantmeal.module.production.classpath">
+    <path refid="${module.jdk.classpath.fragrantmeal}"/>
+  </path>
+  
+  <path id="fragrantmeal.runtime.production.module.classpath">
+    <pathelement location="${fragrantmeal.output.dir}"/>
+  </path>
+  
+  <path id="fragrantmeal.module.classpath">
+    <path refid="${module.jdk.classpath.fragrantmeal}"/>
+    <pathelement location="${fragrantmeal.output.dir}"/>
+  </path>
+  
+  <path id="fragrantmeal.runtime.module.classpath">
+    <pathelement location="${fragrantmeal.testoutput.dir}"/>
+    <pathelement location="${fragrantmeal.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.fragrantmeal">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.fragrantmeal">
+    <patternset refid="excluded.from.module.fragrantmeal"/>
+  </patternset>
+  
+  
+  <target name="compile.module.fragrantmeal" depends="compile.module.fragrantmeal.production,compile.module.fragrantmeal.tests" description="Compile module FragrantMeal"/>
+  
+  <target name="compile.module.fragrantmeal.production" depends="register.custom.compilers" description="Compile module FragrantMeal; production classes"/>
+  
+  <target name="compile.module.fragrantmeal.tests" depends="register.custom.compilers,compile.module.fragrantmeal.production" description="compile module FragrantMeal; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.fragrantmeal" description="cleanup module">
+    <delete dir="${fragrantmeal.output.dir}"/>
+    <delete dir="${fragrantmeal.testoutput.dir}"/>
+  </target>
+</project>

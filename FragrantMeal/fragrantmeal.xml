@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="fragrantmeal" default="all">
+  
+  
+  <property file="fragrantmeal.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.apk"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.android-async-http-1.4.5.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.loopj.android/android-async-http/1.4.5/77bf7cacf9cefe19dc105e5425d2eb1bb5285881/android-async-http-1.4.5.jar"/>
+  </path>
+  
+  <path id="library.appcompat-v7-22.0.0.classpath">
+    <pathelement location="${basedir}/WaterDropListView-master/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/res"/>
+    <pathelement location="${basedir}/WaterDropListView-master/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"/>
+  </path>
+  
+  <path id="library.appcompat-v7-22.2.0.classpath">
+    <pathelement location="${basedir}/core/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res"/>
+    <pathelement location="${basedir}/core/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/classes.jar"/>
+  </path>
+  
+  <path id="library.appcompat-v7-23.1.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/classes.jar"/>
+  </path>
+  
+  <path id="library.butterknife-6.1.0.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"/>
+  </path>
+  
+  <path id="library.commons-lang3-3.1.classpath">
+    <pathelement location="${basedir}/app/libs/commons-lang3-3.1.jar"/>
+  </path>
+  
+  <path id="library.commons-logging-1.2.classpath">
+    <pathelement location="${basedir}/app/libs/commons-logging-1.2.jar"/>
+  </path>
+  
+  <path id="library.design-23.0.0.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/design/23.0.0/classes.jar"/>
+  </path>
+  
+  <path id="library.eventbus-2.4.0.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/de.greenrobot/eventbus/2.4.0/ddd166d01b3158d1c00576d29f7ed15c030df719/eventbus-2.4.0.jar"/>
+  </path>
+  
+  <path id="library.flipviewpager-1.0.0.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.yalantis/flipviewpager/1.0.0/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.yalantis/flipviewpager/1.0.0/classes.jar"/>
+  </path>
+  
+  <path id="library.gson-2.3.1.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"/>
+  </path>
+  
+  <path id="library.library-2.0.0.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.race604.flyrefresh/library/2.0.0/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.race604.flyrefresh/library/2.0.0/classes.jar"/>
+  </path>
+  
+  <path id="library.mqttv3.classpath">
+    <pathelement location="${basedir}/app/libs/mqttv3.jar"/>
+  </path>
+  
+  <path id="library.okhttp-2.4.0.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.4.0/40340c0748190fe897baf7bffbc1b282734294e5/okhttp-2.4.0.jar"/>
+  </path>
+  
+  <path id="library.okhttp-urlconnection-2.4.0.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-urlconnection/2.4.0/a0c195f14cefc7597e0bebf22c3e7b43920dcf4/okhttp-urlconnection-2.4.0.jar"/>
+  </path>
+  
+  <path id="library.okio-1.4.0.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.4.0/5b72bf48563ea8410e650de14aa33ff69a3e8c35/okio-1.4.0.jar"/>
+  </path>
+  
+  <path id="library.picasso-2.4.0.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"/>
+  </path>
+  
+  <path id="library.popuplistview-1.0.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.github.s8871404/PopupListView/1.0.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.github.s8871404/PopupListView/1.0.1/classes.jar"/>
+  </path>
+  
+  <path id="library.ptrrv-library-1.2.0.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/homhomlin.lib/ptrrv-library/1.2.0/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/homhomlin.lib/ptrrv-library/1.2.0/classes.jar"/>
+  </path>
+  
+  <path id="library.recyclerview-v7-22.2.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.2.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.2.1/classes.jar"/>
+  </path>
+  
+  <path id="library.retrofit-1.9.0.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"/>
+  </path>
+  
+  <path id="library.rxandroid-0.24.0.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/io.reactivex/rxandroid/0.24.0/42dab493b8f74b164e082f281480c9d493ff89da/rxandroid-0.24.0.jar"/>
+  </path>
+  
+  <path id="library.rxjava-1.0.4.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.4/a607b0e12d2de769dc219e00b60a9b3d9e730d/rxjava-1.0.4.jar"/>
+  </path>
+  
+  <path id="library.serotonin-utils-2.1.7.classpath">
+    <pathelement location="${basedir}/app/libs/serotonin-utils-2.1.7.jar"/>
+  </path>
+  
+  <path id="library.support-annotations-22.0.0.classpath">
+    <pathelement location="D:/SDK/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"/>
+  </path>
+  
+  <path id="library.support-annotations-22.2.0.classpath">
+    <pathelement location="D:/SDK/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"/>
+  </path>
+  
+  <path id="library.support-annotations-23.1.1.classpath">
+    <pathelement location="D:/SDK/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"/>
+  </path>
+  
+  <path id="library.support-v4-22.0.0.classpath">
+    <pathelement location="${basedir}/WaterDropListView-master/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/res"/>
+    <pathelement location="${basedir}/WaterDropListView-master/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"/>
+    <pathelement location="${basedir}/WaterDropListView-master/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"/>
+  </path>
+  
+  <path id="library.support-v4-22.2.0.classpath">
+    <pathelement location="${basedir}/core/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/res"/>
+    <pathelement location="${basedir}/core/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/classes.jar"/>
+    <pathelement location="${basedir}/core/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/libs/internal_impl-22.2.0.jar"/>
+  </path>
+  
+  <path id="library.support-v4-23.1.1.classpath">
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/res"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/classes.jar"/>
+    <pathelement location="${basedir}/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/libs/internal_impl-23.1.1.jar"/>
+  </path>
+  
+  <path id="library.timer-2.0.6.classpath">
+    <pathelement location="${basedir}/app/libs/timer-2.0.6.jar"/>
+  </path>
+  
+  <path id="library.universal-image-loader-1.9.3.classpath">
+    <pathelement location="C:/Users/CaoBin/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.3/a85588bec3e2c4584d593d3f15df1677321bca72/universal-image-loader-1.9.3.jar"/>
+  </path>
+  
+  <path id="library.volley-1.0-snapshot.classpath">
+    <pathelement location="${basedir}/app/libs/volley-1.0-SNAPSHOT.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm4-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/core/module_core.xml"/>
+  
+  <import file="${basedir}/module_fragrantmeal.xml"/>
+  
+  <import file="${basedir}/WaterDropListView-master/module_waterdroplistview-master.xml"/>
+  
+  <import file="${basedir}/app/module_app.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.core, clean.module.fragrantmeal, clean.module.waterdroplistview-master, clean.module.app" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.core, compile.module.fragrantmeal, compile.module.waterdroplistview-master, compile.module.app" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

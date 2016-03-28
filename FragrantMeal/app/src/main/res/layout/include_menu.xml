@@ -2,7 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@drawable/ic_menu_bg">
     <LinearLayout
         android:id="@+id/btn_restaurant"
         android:layout_width="0dp"
@@ -26,7 +29,7 @@
             android:layout_gravity="center"
             android:textColor="@android:color/darker_gray"
             android:clickable="false"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:text="餐馆"/>
     </LinearLayout>
 
@@ -53,7 +56,7 @@
             android:layout_gravity="center"
             android:textColor="@android:color/darker_gray"
             android:clickable="false"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:text="发现"/>
     </LinearLayout>
 
@@ -80,7 +83,7 @@
             android:layout_gravity="center"
             android:clickable="false"
             android:textColor="@android:color/darker_gray"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:text="订单"/>
     </LinearLayout>
 
@@ -107,7 +110,7 @@
             android:layout_gravity="center"
             android:clickable="false"
             android:textColor="@android:color/darker_gray"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:text="我的"/>
     </LinearLayout>
 

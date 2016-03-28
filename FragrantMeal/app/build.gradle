@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.fragrantmeal"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -32,7 +32,13 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:recyclerview-v7:22.2.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:support-annotations:22.0.0'
     compile project(':core')
+    compile project(':WaterDropListView-master')
+    compile 'homhomlin.lib:ptrrv-library:1.2.0'
+    compile 'com.race604.flyrefresh:library:2.0.0'
+    compile 'com.yalantis:flipviewpager:1.0.0'
+    compile 'com.github.s8871404:PopupListView:1.0.1@aar'
 }

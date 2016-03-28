@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_core" default="compile.module.core">
+  <dirname property="module.core.basedir" file="${ant.file.module_core}"/>
+  
+  <property name="module.jdk.home.core" value=""/>
+  <property name="module.jdk.bin.core" value=""/>
+  <property name="module.jdk.classpath.core" value=""/>
+  
+  <property name="compiler.args.core" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="core.output.dir" value="${module.core.basedir}/build/intermediates/classes/debug"/>
+  <property name="core.testoutput.dir" value="${module.core.basedir}/build/intermediates/classes/debug"/>
+  
+  <path id="core.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="core.module.production.classpath">
+    <path refid="library.gson-2.3.1.classpath"/>
+    <path refid="library.eventbus-2.4.0.classpath"/>
+    <path refid="library.okhttp-urlconnection-2.4.0.classpath"/>
+    <path refid="library.rxandroid-0.24.0.classpath"/>
+    <path refid="library.picasso-2.4.0.classpath"/>
+    <path refid="library.support-annotations-22.2.0.classpath"/>
+    <path refid="library.okhttp-2.4.0.classpath"/>
+    <path refid="library.support-v4-22.2.0.classpath"/>
+    <path refid="library.universal-image-loader-1.9.3.classpath"/>
+    <path refid="library.rxjava-1.0.4.classpath"/>
+    <path refid="library.retrofit-1.9.0.classpath"/>
+    <path refid="library.appcompat-v7-22.2.0.classpath"/>
+    <path refid="library.butterknife-6.1.0.classpath"/>
+    <path refid="library.android-async-http-1.4.5.classpath"/>
+    <path refid="library.okio-1.4.0.classpath"/>
+  </path>
+  
+  <path id="core.runtime.production.module.classpath">
+    <pathelement location="${core.output.dir}"/>
+    <path refid="library.gson-2.3.1.classpath"/>
+    <path refid="library.eventbus-2.4.0.classpath"/>
+    <path refid="library.okhttp-urlconnection-2.4.0.classpath"/>
+    <path refid="library.rxandroid-0.24.0.classpath"/>
+    <path refid="library.picasso-2.4.0.classpath"/>
+    <path refid="library.support-annotations-22.2.0.classpath"/>
+    <path refid="library.okhttp-2.4.0.classpath"/>
+    <path refid="library.support-v4-22.2.0.classpath"/>
+    <path refid="library.universal-image-loader-1.9.3.classpath"/>
+    <path refid="library.rxjava-1.0.4.classpath"/>
+    <path refid="library.retrofit-1.9.0.classpath"/>
+    <path refid="library.appcompat-v7-22.2.0.classpath"/>
+    <path refid="library.butterknife-6.1.0.classpath"/>
+    <path refid="library.android-async-http-1.4.5.classpath"/>
+    <path refid="library.okio-1.4.0.classpath"/>
+  </path>
+  
+  <path id="core.module.classpath">
+    <pathelement location="${core.output.dir}"/>
+    <path refid="library.gson-2.3.1.classpath"/>
+    <path refid="library.eventbus-2.4.0.classpath"/>
+    <path refid="library.okhttp-urlconnection-2.4.0.classpath"/>
+    <path refid="library.rxandroid-0.24.0.classpath"/>
+    <path refid="library.picasso-2.4.0.classpath"/>
+    <path refid="library.support-annotations-22.2.0.classpath"/>
+    <path refid="library.okhttp-2.4.0.classpath"/>
+    <path refid="library.support-v4-22.2.0.classpath"/>
+    <path refid="library.universal-image-loader-1.9.3.classpath"/>
+    <path refid="library.rxjava-1.0.4.classpath"/>
+    <path refid="library.retrofit-1.9.0.classpath"/>
+    <path refid="library.appcompat-v7-22.2.0.classpath"/>
+    <path refid="library.butterknife-6.1.0.classpath"/>
+    <path refid="library.android-async-http-1.4.5.classpath"/>
+    <path refid="library.okio-1.4.0.classpath"/>
+  </path>
+  
+  <path id="core.runtime.module.classpath">
+    <pathelement location="${core.output.dir}"/>
+    <path refid="library.gson-2.3.1.classpath"/>
+    <path refid="library.eventbus-2.4.0.classpath"/>
+    <path refid="library.okhttp-urlconnection-2.4.0.classpath"/>
+    <path refid="library.rxandroid-0.24.0.classpath"/>
+    <path refid="library.picasso-2.4.0.classpath"/>
+    <path refid="library.support-annotations-22.2.0.classpath"/>
+    <path refid="library.okhttp-2.4.0.classpath"/>
+    <path refid="library.support-v4-22.2.0.classpath"/>
+    <path refid="library.universal-image-loader-1.9.3.classpath"/>
+    <path refid="library.rxjava-1.0.4.classpath"/>
+    <path refid="library.retrofit-1.9.0.classpath"/>
+    <path refid="library.appcompat-v7-22.2.0.classpath"/>
+    <path refid="library.butterknife-6.1.0.classpath"/>
+    <path refid="library.android-async-http-1.4.5.classpath"/>
+    <path refid="library.okio-1.4.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.core">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.core">
+    <patternset refid="excluded.from.module.core"/>
+  </patternset>
+  
+  <path id="core.module.sourcepath">
+    <dirset dir="${module.core.basedir}">
+      <include name="build/generated/source/r/debug"/>
+      <include name="build/generated/source/aidl/debug"/>
+      <include name="build/generated/source/buildConfig/debug"/>
+      <include name="build/generated/source/rs/debug"/>
+      <include name="build/generated/res/rs/debug"/>
+      <include name="src/main/res"/>
+      <include name="src/main/java"/>
+    </dirset>
+  </path>
+  
+  <path id="core.module.test.sourcepath">
+    <dirset dir="${module.core.basedir}">
+      <include name="build/generated/source/r/test/debug"/>
+      <include name="build/generated/source/aidl/test/debug"/>
+      <include name="build/generated/source/buildConfig/test/debug"/>
+      <include name="build/generated/source/rs/test/debug"/>
+      <include name="build/generated/res/rs/test/debug"/>
+      <include name="src/androidTest/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.core" depends="compile.module.core.production,compile.module.core.tests" description="Compile module core"/>
+  
+  <target name="compile.module.core.production" depends="register.custom.compilers" description="Compile module core; production classes">
+    <mkdir dir="${core.output.dir}"/>
+    <javac2 destdir="${core.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.core}/javac">
+      <compilerarg line="${compiler.args.core}"/>
+      <bootclasspath refid="core.module.bootclasspath"/>
+      <classpath refid="core.module.production.classpath"/>
+      <src refid="core.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.core"/>
+    </javac2>
+    
+    <copy todir="${core.output.dir}">
+      <fileset dir="${module.core.basedir}/build/generated/source/r/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/build/generated/source/aidl/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/build/generated/source/buildConfig/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/build/generated/source/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/build/generated/res/rs/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/src/main/res">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.core.tests" depends="register.custom.compilers,compile.module.core.production" description="compile module core; test classes" unless="skip.tests">
+    <mkdir dir="${core.testoutput.dir}"/>
+    <javac2 destdir="${core.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.core}/javac">
+      <compilerarg line="${compiler.args.core}"/>
+      <bootclasspath refid="core.module.bootclasspath"/>
+      <classpath refid="core.module.classpath"/>
+      <src refid="core.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.core"/>
+    </javac2>
+    
+    <copy todir="${core.testoutput.dir}">
+      <fileset dir="${module.core.basedir}/build/generated/source/r/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/build/generated/source/aidl/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/build/generated/source/buildConfig/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/build/generated/source/rs/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/build/generated/res/rs/test/debug">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.core.basedir}/src/androidTest/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.core" description="cleanup module">
+    <delete dir="${core.output.dir}"/>
+    <delete dir="${core.testoutput.dir}"/>
+  </target>
+</project>
