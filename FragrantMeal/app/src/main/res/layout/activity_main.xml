@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context=".MainActivity">
+    <include layout="@layout/include_title"/>
     <FrameLayout
         android:id="@+id/fl_menu"
         android:layout_width="match_parent"

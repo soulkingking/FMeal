@@ -46,6 +46,8 @@ public class MainActivity extends Activity {
     TextView tvUser;
     @InjectView(R.id.btn_user)
     LinearLayout btnUser;
+    @InjectView(R.id.tv_title)
+    TextView tvTitle;
 
     private RestaurantFragment restaurantFragment;
     private FoundFragment foundFragment;
@@ -67,51 +69,55 @@ public class MainActivity extends Activity {
         // 把图片设置为亮的
         // 设置内容区域
         switch (i) {
-            case 0 :
+            case 0:
                 if (restaurantFragment == null) {
                     restaurantFragment = new RestaurantFragment();
                     transaction.add(R.id.fl_menu, restaurantFragment);
                 } else {
                     transaction.show(restaurantFragment);
                 }
+                tvTitle.setText("餐馆");
                 ivRestaurant.setImageResource(R.drawable.ic_restaurant_on);
                 tvRestaurant.setTextColor(getResources().getColor(R.color.menu_on));
                 break;
 
-            case 1 :
+            case 1:
                 if (foundFragment == null) {
                     foundFragment = new FoundFragment();
                     transaction.add(R.id.fl_menu, foundFragment);
                 } else {
                     transaction.show(foundFragment);
                 }
+                tvTitle.setText("发现");
                 ivFound.setImageResource(R.drawable.ic_found_on);
                 tvFound.setTextColor(getResources().getColor(R.color.menu_on));
                 break;
 
-            case 2 :
+            case 2:
                 if (orderFragment == null) {
                     orderFragment = new OrderFragment();
                     transaction.add(R.id.fl_menu, orderFragment);
                 } else {
                     transaction.show(orderFragment);
                 }
+                tvTitle.setText("我的订单");
                 ivOrder.setImageResource(R.drawable.ic_order_on);
                 tvOrder.setTextColor(getResources().getColor(R.color.menu_on));
                 break;
 
-            case 3 :
+            case 3:
                 if (userFragment == null) {
                     userFragment = new UserFragment();
                     transaction.add(R.id.fl_menu, userFragment);
                 } else {
                     transaction.show(userFragment);
                 }
+                tvTitle.setText("个人中心");
                 ivUser.setImageResource(R.drawable.ic_user_on);
                 tvUser.setTextColor(getResources().getColor(R.color.menu_on));
                 break;
 
-            default :
+            default:
                 break;
         }
         transaction.commit();
@@ -135,7 +141,7 @@ public class MainActivity extends Activity {
 
     @OnClick({R.id.btn_restaurant, R.id.btn_found, R.id.btn_order, R.id.btn_user,})
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_restaurant:
                 resetImage();
                 setSelect(0);
@@ -169,7 +175,6 @@ public class MainActivity extends Activity {
         tvOrder.setTextColor(Color.GRAY);
         tvUser.setTextColor(Color.GRAY);
     }
-
 
 
 }

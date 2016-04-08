@@ -4,4 +4,6 @@
     <color name="login_bg">#0DAF9A</color>
     <drawable name="wihte">#FFFFFF</drawable>
     <drawable name="black">#0DAF9A</drawable>
+    <color name="gay">#CBCBCB</color>
+    <color name="text_gay">#707070</color>
 </resources>

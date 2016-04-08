@@ -40,5 +40,5 @@ dependencies {
     compile 'homhomlin.lib:ptrrv-library:1.2.0'
     compile 'com.race604.flyrefresh:library:2.0.0'
     compile 'com.yalantis:flipviewpager:1.0.0'
-    compile 'com.github.s8871404:PopupListView:1.0.1@aar'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
 }

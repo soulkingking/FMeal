@@ -17,16 +17,19 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="上海外滩华尔道夫酒店招牌红丝绒下午茶"
+        android:textColor="@color/gay"
         android:textSize="18sp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:textColor="@color/gay"
         android:text="时间"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:textColor="@color/gay"
         android:text="饭店名称"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,17 +40,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/gay"
             android:text="677元/2位"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/gay"
             android:text="仅剩4份"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:layout_weight="2"
+            android:textColor="@color/gay"
             android:text=".距离707.73km"/>
 
     </LinearLayout>
