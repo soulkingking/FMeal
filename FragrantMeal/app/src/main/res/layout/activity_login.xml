@@ -33,15 +33,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:src="@drawable/ic_login_phone"/>
+                android:src="@drawable/img_icon_personal_blue"/>
             <EditText
                 android:id="@+id/tv_user_phone"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:singleLine="true"
                 android:imeOptions="actionNext"
-                android:inputType="phone"
                 android:background="@null"
+                android:inputType="phone"
+                android:hint="请输入手机号码"
+                android:textColorHint="@color/gay2"
                 android:textSize="20sp"
                 android:layout_weight="3"/>
         </LinearLayout>
@@ -55,7 +57,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_login_password"/>
+                android:src="@drawable/img_icon_private"/>
             <EditText
                 android:id="@+id/tv_user_pass"
                 android:layout_width="0dp"
@@ -64,6 +66,8 @@
                 android:background="@null"
                 android:inputType="textPassword"
                 android:imeOptions="actionNext"
+                android:hint="请输入密码"
+                android:textColorHint="@color/gay2"
                 android:textSize="20sp"
                 android:layout_weight="3"/>
         </LinearLayout>

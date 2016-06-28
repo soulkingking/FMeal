@@ -17,25 +17,25 @@
             android:layout_weight="3">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/personal_information"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/x100"
+                android:layout_height="@dimen/x100"
                 android:layout_gravity="center"
                 android:src="@drawable/img_circle_icon"/>
             <ImageView
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="@dimen/x260"
+                android:layout_marginTop="@dimen/y55"
+                android:layout_marginLeft="@dimen/x185"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/img_edit"/>
         </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tv_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/y5"
                 android:gravity="center"
                 android:textSize="@dimen/userfragment"
                 android:textColor="@android:color/white"
@@ -44,12 +44,12 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/tv_signature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/y5"
                 android:gravity="center"
                 android:textSize="@dimen/userfragmentsmall"
                 android:textColor="@android:color/white"
@@ -109,7 +109,7 @@
             android:layout_marginTop="@dimen/y3"
             android:layout_height="wrap_content"
             android:textSize="@dimen/userfragment"
-            android:text="我的关注"
+            android:text="我的收藏"
             android:textColor="@color/text_gay"
             android:layout_weight="1"/>
 
@@ -122,6 +122,7 @@
 
     <LinearLayout
         android:id="@+id/coupon"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -151,6 +152,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/wallet"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -197,7 +199,7 @@
             android:layout_marginTop="@dimen/y3"
             android:layout_height="wrap_content"
             android:textSize="@dimen/userfragment"
-            android:text="设置"
+            android:text="我的地址"
             android:textColor="@color/text_gay"
             android:layout_weight="1"/>
 
@@ -261,7 +263,65 @@
             android:layout_marginTop="@dimen/y3"
             android:layout_height="wrap_content"
             android:textSize="@dimen/userfragment"
-            android:text="我要发布"
+            android:text="软件介绍"
+            android:textColor="@color/text_gay"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y2"
+            android:src="@drawable/img_arrow_right_gray_new"/>
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:background="@drawable/boderbottom">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_icon_coupons"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/y3"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/userfragment"
+            android:text="优惠券"
+            android:textColor="@color/text_gay"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y2"
+            android:src="@drawable/img_arrow_right_gray_new"/>
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/x5"
+        android:layout_marginRight="@dimen/x5"
+        android:gravity="center"
+        android:background="@drawable/boderbottom">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_icon_wallet"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/y3"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/userfragment"
+            android:text="钱包"
             android:textColor="@color/text_gay"
             android:layout_weight="1"/>
 

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/gay">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y30"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:background="@color/gay">
+
+            <TextView
+                android:id="@+id/login_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/title"
+                android:text="FMeal"
+                android:background="@null"
+                android:textColor="@color/login_bg" />
+        </LinearLayout>
+        <EditText
+            android:id="@+id/register_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x6"
+            android:layout_marginRight="@dimen/x6"
+            android:layout_marginTop="@dimen/y3"
+            android:layout_marginBottom="@dimen/y3"
+            android:gravity="center_vertical"
+            android:background="@drawable/ic_login_on"
+            android:hint="  用户名:"
+            android:singleLine="true"/>
+
+        <EditText
+            android:id="@+id/register_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x6"
+            android:layout_marginRight="@dimen/x6"
+            android:layout_marginTop="@dimen/y3"
+            android:layout_marginBottom="@dimen/y3"
+            android:gravity="center_vertical"
+            android:background="@drawable/ic_login_on"
+            android:hint="  手机号:"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/register_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x6"
+            android:layout_marginRight="@dimen/x6"
+            android:layout_marginTop="@dimen/y3"
+            android:layout_marginBottom="@dimen/y3"
+            android:gravity="center_vertical"
+            android:background="@drawable/ic_login_on"
+            android:hint="  密码:"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/register_repeat_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x6"
+            android:layout_marginRight="@dimen/x6"
+            android:layout_marginTop="@dimen/y3"
+            android:layout_marginBottom="@dimen/y3"
+            android:gravity="center_vertical"
+            android:background="@drawable/ic_login_on"
+            android:hint="  重复密码:"
+            android:singleLine="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <Button
+                android:id="@+id/go_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x6"
+                android:layout_marginRight="@dimen/x6"
+                android:layout_marginTop="@dimen/y3"
+                android:layout_marginBottom="@dimen/y3"
+                android:gravity="center"
+                android:background="@drawable/selector_btn_login_click_bg"
+                android:text="注册"
+                android:textColor="@drawable/selector_btn_click_text"
+                android:textSize="@dimen/userfragment"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

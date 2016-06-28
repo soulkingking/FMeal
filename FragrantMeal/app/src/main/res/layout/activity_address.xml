@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gay2"
+    >
+    <include layout="@layout/item_address_title"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="@color/gay2">
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/btn_add_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/y10"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/takeout_ic_add_new"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/x5"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/userfragmentsmall"
+            android:layout_weight="4"
+            android:textColor="@color/black"
+            android:text="添加地址"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/cashier__ic_arrow_right"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y10"
+        android:background="@color/gay2">
+    </LinearLayout>
+    <com.yydcdut.sdlv.SlideAndDragListView
+        android:id="@+id/lv_address"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:divider="#00000000">
+    </com.yydcdut.sdlv.SlideAndDragListView>
+</LinearLayout>

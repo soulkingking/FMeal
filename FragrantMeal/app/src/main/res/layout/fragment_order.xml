@@ -5,4 +5,11 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+    <medusa.theone.waterdroplistview.view.WaterDropListView
+        android:id="@+id/lv_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:divider="#00000000">
+    </medusa.theone.waterdroplistview.view.WaterDropListView>
 </LinearLayout>

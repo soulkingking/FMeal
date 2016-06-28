@@ -10,7 +10,6 @@ package medusa.theone.waterdroplistview.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
@@ -193,9 +192,9 @@ public class WaterDropListView extends ListView implements OnScrollListener,Wate
 				//由end变成normal的逻辑：1、当前状态是end；2、下拉头高度小于一个极小值
 				mHeaderView.updateState(WaterDropListViewHeader.STATE.normal);
 			}
-			/*else{
-				throw new IllegalStateException("WaterDropListView's state is illegal!");
-			}*/
+//			else{
+//				throw new IllegalStateException("WaterDropListView's state is illegal!");
+//			}
 		}
 		mHeaderView.setVisiableHeight(height);//动态设置HeaderView的高度
 	}

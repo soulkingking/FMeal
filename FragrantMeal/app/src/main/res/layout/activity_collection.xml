@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gay2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/x10"
+        android:layout_height="wrap_content"
+        android:background="@color/login_bg"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/selector_btn_back_click_bg"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="@dimen/userfragment"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:text="我收藏的店家"/>
+
+    </LinearLayout>
+    <com.yydcdut.sdlv.SlideAndDragListView
+        android:id="@+id/lv_collection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:divider="#00000000">
+    </com.yydcdut.sdlv.SlideAndDragListView>
+</LinearLayout>

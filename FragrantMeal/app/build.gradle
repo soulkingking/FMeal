@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.fragrantmeal"
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -28,10 +28,20 @@ android {
         exclude 'META-INF/NOTICE.txt'
         exclude 'META-INF/LICENSE.txt'
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    repositories{
+        flatDir{
+            dirs 'libs' //就是你放aar的目录地址
+        }
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:recyclerview-v7:22.2.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:support-annotations:22.0.0'
@@ -41,4 +51,13 @@ dependencies {
     compile 'com.race604.flyrefresh:library:2.0.0'
     compile 'com.yalantis:flipviewpager:1.0.0'
     compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/viewpagerindicator_v1.0.2.jar')
+    compile 'com.bigkoo:alertview:1.0.2'
+    compile 'com.yydcdut.sdlv:sdlv:0.5.0-beta@aar'
+    compile 'com.jude:rollviewpager:1.2.9'
+    compile files('libs/MobCommons-2016.0303.1229.jar')
+    compile files('libs/MobTools-2016.0303.1229.jar')
+    compile name:'SMSSDK-2.0.2',ext:'aar'
+    compile name:'SMSSDKGUI-2.0.2',ext:'aar'
 }

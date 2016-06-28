@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="userfragment">20sp</dimen>
+    <dimen name="userfragment1">16sp</dimen>
     <dimen name="userfragmentsmall">15sp</dimen>
     <dimen name="title">24sp</dimen>
 </resources>

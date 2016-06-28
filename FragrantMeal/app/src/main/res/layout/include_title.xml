@@ -3,30 +3,66 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center"
     android:background="@color/login_bg"
     >
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/y2"
-        android:layout_marginBottom="@dimen/y2"
+        android:layout_marginTop="@dimen/y5"
+        android:layout_marginBottom="@dimen/y5"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal">
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x5"
+                android:gravity="left"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/userfragmentsmall"
+                android:text="当前位置"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="@dimen/title"
-            android:layout_gravity="center"
-            android:textColor="@android:color/white"
-            android:text="标题"/>
-        <Button
-            android:id="@+id/iv_message"
-            android:layout_marginRight="@dimen/x5"
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxEms="6"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="@dimen/userfragmentsmall"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"
+                android:text="标题"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:background="@drawable/selector_message"/>
-    </FrameLayout>
+            android:gravity="right"
+            android:layout_marginRight="@dimen/x5"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btn_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_btn_more_click"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

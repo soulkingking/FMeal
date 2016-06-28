@@ -9,8 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.fragrantmeal.App;
+import com.fragrantmeal.EventBus.EventBusSelect;
 import com.fragrantmeal.R;
-import com.fragrantmeal.entity.User;
+import com.fragrantmeal.entity.UserInfo;
+import com.fragrantmeal.util.Config;
 import com.fragrantmeal.util.GsonUtil;
 import com.fragrantmeal.util.ShowToast;
 import com.mj.core.util.IntentUtils;
@@ -19,6 +21,7 @@ import com.mj.core.util.SharedPrefsUtil;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 import rx.android.app.AppObservable;
 
 /**
@@ -41,15 +44,16 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.inject(this);
-        User user= (User) GsonUtil.fromJson(SharedPrefsUtil.getString(this, "userInfo", "user"), User.class);
+        EventBus.getDefault().register(this);
+        UserInfo user= (UserInfo) GsonUtil.fromJson(SharedPrefsUtil.getString(this, "userInfo", "user"), UserInfo.class);
         if (user==null){
             save.setChecked(false);
             save.setButtonDrawable(R.drawable.ic_checkbox_unselected);
         }else {
             save.setChecked(true);
             save.setButtonDrawable(R.drawable.ic_checkbox_selected);
-            tvUserPhone.setText(user.getUserPhone());
-            tvUserPass.setText(user.getPassWord());
+            tvUserPhone.setText(user.getUsername());
+            tvUserPass.setText(user.getPassword());
         }
     }
 
@@ -68,10 +72,10 @@ public class LoginActivity extends Activity {
                 }
                 break;
             case R.id.btn_forget_pass :
-
+                IntentUtils.forward(this,ForgotPassWordActivity.class);
                 break;
             case R.id.tv_registered:
-
+                IntentUtils.forward(this,RegisterAcitivty.class);
                 break;
         }
 
@@ -83,15 +87,18 @@ public class LoginActivity extends Activity {
 
             String userPhone = tvUserPhone.getText().toString().trim();
             String userPass = tvUserPass.getText().toString().trim();
-            User user = new User(userPhone, userPass);
+            UserInfo user = new UserInfo();
+            user.setUsername(userPhone);
+            user.setPassword(userPass);
             AppObservable.bindActivity(this, App.getfMealNet().login(user))
                     .subscribe(
                             success -> {
-                                if (1 == Integer.parseInt(success.getLoginState())) {
+                                if (success!=null) {
                                     if (save.isChecked()){
-                                        SharedPrefsUtil.setValue(this,"userInfo","user", GsonUtil.toJson(user));
+                                        SharedPrefsUtil.setValue(this, "userInfo", "user", GsonUtil.toJson(user));
                                     }
-                                    IntentUtils.forward(this, MainActivity.class);
+                                    SharedPrefsUtil.setValue(this,"LoginUser","user", GsonUtil.toJson(success));
+                                    IntentUtils.forward(this,MainActivity.class);
                                     this.finish();
                                 } else {
                                     ShowToast.showToast(this, "登陆失败，请重新输入用户名和密码！");
@@ -105,7 +112,7 @@ public class LoginActivity extends Activity {
 
         } else {
             if (tvUserPhone.getText().toString().trim().equals("")) {
-                tvUserPhone.setError("用户名不能为空！");
+                tvUserPhone.setError("手机号不能为空！");
             }
             if (tvUserPass.getText().toString().trim().equals("")) {
                 tvUserPass.setError("密码不能为空！");
@@ -118,6 +125,20 @@ public class LoginActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.reset(this);
+        EventBus.getDefault().unregister(this);
+    }
+
+    public void onEventMainThread(EventBusSelect event) {
+
+        switch (event.getActionType()){
+            case Config.REGISTER:
+                UserInfo userInfo= (UserInfo) GsonUtil.fromJson(event.getMessage(),UserInfo.class);
+                tvUserPhone.setText(userInfo.getUsername());
+                tvUserPass.setText(userInfo.getPassword());
+                login();
+                break;
+        }
+
     }
 
 }
